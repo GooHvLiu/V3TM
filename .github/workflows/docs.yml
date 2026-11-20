@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: 检出仓库
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # 「最后更新」读提交时间，浅克隆取不到
           fetch-depth: 0
