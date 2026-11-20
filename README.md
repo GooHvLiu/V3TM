@@ -4,7 +4,7 @@
 
 Vue 3 + TypeScript + Vite 的中后台前端模板，内置动态路由、RBAC 权限、主题令牌、Mock 接口、通知/日志/知识库等业务页面，适合作为企业后台项目的起点。
 
-[![version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/GooHvLiu/V3TM/releases)[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)[![ci](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml)[![docs](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml)[![Vue](https://img.shields.io/badge/Vue-3.5-42b883.svg)](https://vuejs.org)[![Vite](https://img.shields.io/badge/Vite-8-646cff.svg)](https://vite.dev)[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6.svg)](https://www.typescriptlang.org)[![Element Plus](https://img.shields.io/badge/Element%20Plus-2.14-409eff.svg)](https://element-plus.org)[![Node](https://img.shields.io/badge/node-%3E%3D22-339933.svg)](https://nodejs.org)[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![version](https://img.shields.io/badge/version-0.2.0-blue.svg)](https://github.com/GooHvLiu/V3TM/releases)[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)[![ci](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml)[![docs](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml)[![Vue](https://img.shields.io/badge/Vue-3.5-42b883.svg)](https://vuejs.org)[![Vite](https://img.shields.io/badge/Vite-8-646cff.svg)](https://vite.dev)[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6.svg)](https://www.typescriptlang.org)[![Element Plus](https://img.shields.io/badge/Element%20Plus-2.14-409eff.svg)](https://element-plus.org)[![Node](https://img.shields.io/badge/node-%3E%3D22-339933.svg)](https://nodejs.org)[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 在线文档：https://goohvliu.github.io/V3TM/ ｜ 在线演示：https://goohvliu.github.io/V3TM/demo-app/
 
@@ -169,6 +169,16 @@ V3TM/
 | `VITE_APP_HELP_AI_TIMEOUT` | 帮助中心 AI 请求超时       |
 
 未填 `VITE_USE_MOCK` 时按运行模式判断：开发与 e2e 走 Mock，生产构建走真实接口。
+
+## 部署
+
+`deploy/` 里备了多阶段 Dockerfile、nginx 配置与 compose 文件：构建在 node 镜像里完成，产物交给 nginx，深链回落、带 hash 资源长缓存、`/healthz` 探活都已配好。
+
+```bash
+docker compose -f deploy/docker-compose.yml up -d --build
+```
+
+起来后访问 `http://localhost:8080`。挂到子路径时，构建时传 `--build-arg VITE_APP_BASE=/v3tm/`；不用容器的话，把 `dist` 拷到静态目录，引用同一份 `nginx.conf` 即可。细节见 [deploy/README.md](deploy/README.md)。
 
 ## 文档
 

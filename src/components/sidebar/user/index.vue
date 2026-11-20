@@ -5,7 +5,7 @@
       :trigger="isCollapsed ? 'hover' : 'click'"
       placement="top-start"
       @command="handleCommand"
-      ><div class="user-trigger" :aria-label="userLabel">
+      ><div class="user-trigger" :aria-label="isCollapsed ? userLabel : undefined">
         <UserInfo class="user-info-wrapper" :is-collapsed-enable="true" />
         <div v-if="!isCollapsed && !userLoading" class="right-more-icon">
           <el-icon v-if="!userLoading">
@@ -59,7 +59,7 @@ import { useUserStore, useMenuStore } from "@/stores";
 const userStore = useUserStore();
 const menuStore = useMenuStore();
 
-/** 折叠态只显示头像，名称需补到可读标签 */
+/** 折叠态只剩头像，名称要补到可读标签；展开态由可见文本充当名称，避免与真实文本冲突 */
 const userLabel = computed<string>(() => userStore.userProfile?.realName || t("sidebar.user.profile"));
 
 import { useRouter } from "vue-router";

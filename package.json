@@ -1,6 +1,6 @@
 {
   "name": "v3tm",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Vue 3 + Element Plus admin template with dynamic menus, RBAC, i18n and a VitePress docs site.",
   "keywords": [
     "vue3",
@@ -88,6 +88,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.5.1",
+    "@axe-core/playwright": "^4.14.0",
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.1.0",
     "@iconify-json/carbon": "^1.2.30",

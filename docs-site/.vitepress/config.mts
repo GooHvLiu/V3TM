@@ -3,6 +3,8 @@ import { resolve } from "node:path";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
+import { enNav, enSidebar, zhNav, zhSidebar } from "./locales.mts";
+
 const root = resolve(import.meta.dirname, "../..");
 
 /**
@@ -22,78 +24,42 @@ export default defineConfig({
   // README 是给维护者看的说明，不进页面
   srcExclude: ["README.md"],
   head: [["link", { rel: "icon", href: `${siteBase}favicon.svg`, type: "image/svg+xml" }]],
-  themeConfig: {
-    nav: [
-      { text: "指南", link: "/guide/" },
-      { text: "组件", link: "/components/" },
-      { text: "业务组件", link: "/business/" },
-      { text: "参考", link: "/reference/" },
-      { text: "演示", link: "/playground/" }
-    ],
-    sidebar: {
-      "/guide/": [
-        {
-          text: "指南",
-          items: [
-            { text: "快速开始", link: "/guide/" },
-            { text: "目录与分层", link: "/guide/structure" },
-            { text: "环境变量与 Mock", link: "/guide/env" },
-            { text: "路由与权限", link: "/guide/routing" },
-            { text: "请求层", link: "/guide/request" }
-          ]
-        }
-      ],
-      "/components/": [
-        {
-          text: "原子组件",
-          items: [
-            { text: "总览", link: "/components/" },
-            { text: "按钮 AppButton", link: "/components/button" },
-            { text: "标签 AppTag", link: "/components/tag" },
-            { text: "提示 AppTooltip", link: "/components/tooltip" },
-            { text: "提醒 AppAlert", link: "/components/alert" },
-            { text: "卡片 AppCard", link: "/components/card" },
-            { text: "头像 AppAvatar", link: "/components/avatar" },
-            { text: "徽标 AppBadge", link: "/components/badge" },
-            { text: "抽屉 AppDrawer", link: "/components/drawer" },
-            { text: "对话框 AppDialog", link: "/components/dialog" },
-            { text: "页签 AppTabs", link: "/components/tabs" },
-            { text: "分隔 AppSeparator", link: "/components/separator" },
-            { text: "空态 AppEmpty", link: "/components/empty" },
-            { text: "骨架 AppSkeleton", link: "/components/skeleton" },
-            { text: "错误态 AppErrorState", link: "/components/error-state" }
-          ]
-        }
-      ],
-      "/business/": [
-        {
-          text: "业务组件",
-          items: [
-            { text: "总览", link: "/business/" },
-            { text: "表格 ProTable", link: "/business/pro-table" },
-            { text: "表单 ProForm", link: "/business/pro-form" },
-            { text: "查询 ProSearch", link: "/business/pro-search" },
-            { text: "图表 BaseChart", link: "/business/base-chart" }
-          ]
-        }
-      ],
-      "/reference/": [
-        {
-          text: "参考",
-          items: [
-            { text: "总览", link: "/reference/" },
-            { text: "间距令牌", link: "/reference/spacing" },
-            { text: "断点", link: "/reference/breakpoints" }
-          ]
-        }
-      ]
+  // 中文挂在根路径，英文走 /en/ 前缀；两套导航与侧边栏分别来自 locales
+  locales: {
+    root: {
+      label: "简体中文",
+      lang: "zh-CN",
+      title: "V3TM",
+      description: "Vue 3 + Element Plus 中后台前端模板",
+      themeConfig: {
+        nav: zhNav,
+        sidebar: zhSidebar,
+        outline: { label: "本页", level: [2, 3] },
+        docFooter: { prev: "上一篇", next: "下一篇" },
+        returnToTopLabel: "回到顶部",
+        darkModeSwitchLabel: "主题",
+        sidebarMenuLabel: "目录",
+        lastUpdated: { text: "最后更新" }
+      }
     },
-    outline: { label: "本页", level: [2, 3] },
-    docFooter: { prev: "上一篇", next: "下一篇" },
-    returnToTopLabel: "回到顶部",
-    darkModeSwitchLabel: "主题",
-    sidebarMenuLabel: "目录",
-    lastUpdated: { text: "最后更新" },
+    en: {
+      label: "English",
+      lang: "en-US",
+      title: "V3TM",
+      description: "Vue 3 + Element Plus admin template",
+      themeConfig: {
+        nav: enNav,
+        sidebar: enSidebar,
+        outline: { label: "On this page", level: [2, 3] },
+        docFooter: { prev: "Previous", next: "Next" },
+        returnToTopLabel: "Back to top",
+        darkModeSwitchLabel: "Theme",
+        sidebarMenuLabel: "Menu",
+        lastUpdated: { text: "Last updated" }
+      }
+    }
+  },
+  themeConfig: {
     search: { provider: "local" }
   },
   vite: {

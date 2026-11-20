@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrap-header-styleCusomize square-line">
+  <div class="page-wrap-header-styleCusomize">
     <span ref="triggerRef" class="customize-trigger">
       <app-tooltip
         :content="t('layout.tooltip.customize')"
@@ -9,7 +9,7 @@
       >
         <button
           type="button"
-          class="customize"
+          class="customize square-line"
           :aria-label="t('layout.tooltip.customize')"
           aria-haspopup="dialog"
           :aria-expanded="customizeOpen ? 'true' : 'false'"
@@ -172,9 +172,9 @@ const handlePopoverHide = () => {
 
   .customize {
     border: 0;
-    padding: 0;
     background: transparent;
     color: inherit;
+    font: inherit;
   }
 }
 
