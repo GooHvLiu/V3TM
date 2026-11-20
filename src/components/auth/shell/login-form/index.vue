@@ -127,7 +127,9 @@ const toForgot = (): void => {
 const submitting = ref(false);
 
 // 换图后旧验证码作废 → 自动清空输入（验证码一次性）
-watch(captchaID, () => {
+// 首次拿到验证码只是加载，不清空，否则会把刚出现的校验提示一并抹掉
+watch(captchaID, (_id, prevId) => {
+  if (!prevId) return;
   loginFormRef.value?.resetFields("captcha");
 });
 

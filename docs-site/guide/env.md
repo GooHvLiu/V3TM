@@ -19,6 +19,8 @@
 
 只有 `VITE_` 开头的变量会进客户端代码——其余变量写进 `.env` 也不会被打包，可以放心放构建期配置。
 
+`VITE_USE_MOCK` 没配置时按运行模式走：开发环境开启，构建产物关闭。`npm run dev` 起来直接能看到界面，而 `npm run build` 的包里不带 mock 表。
+
 ## Mock 怎么工作
 
 `src/mocks` 导出一张 `url → 处理函数` 的表。`VITE_USE_MOCK=true` 时，请求层的适配器查这张表，命中就走本地处理，返回结构与真实后端一致：`{ code, msg, data }`。

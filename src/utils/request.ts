@@ -29,12 +29,12 @@ import type { ApiResponse, LoginResult, PublicRequestError } from "@/types";
 // i18n 实例：拦截器在模块顶层，不依赖组件上下文
 import i18n from "@/locales";
 
-// Mock 接口表（url → 模拟数据）
-import { mockApis } from "@/mocks";
 import { HTTP_STATUS_BY_CODE } from "@/constants/request/http-status";
 
-// Mock 模式开关：没配环境变量时按开启处理，连后端时显式写 false
-const USE_MOCK = import.meta.env.VITE_USE_MOCK !== "false";
+// Mock 模式开关：显式配置优先，未配置时只在开发模式开启
+const USE_MOCK = import.meta.env.VITE_USE_MOCK
+  ? import.meta.env.VITE_USE_MOCK === "true"
+  : import.meta.env.DEV;
 
 /** 兼容 legacy:false 下的 Composer 取值方式 */
 const translator = i18n.global as unknown as {
@@ -365,12 +365,15 @@ const mockEnvelope = (
 
 // Mock 适配器：开发期请求在 axios 通道内被本地数据拦截（保持"统一 axios"）
 if (USE_MOCK) {
+  // 接口表按需加载：静态引入会让整张表随首屏一起打包
+  let mockTable: typeof import("@/mocks").mockApis | null = null;
   request.defaults.adapter = async (config: AxiosRequestConfig): Promise<AxiosResponse> => {
+    const apis = (mockTable ??= (await import("@/mocks")).mockApis);
     await new Promise((resolve) => setTimeout(resolve, 200));
     const matchEntry = (url: string): { entry: unknown; params: Record<string, string> } => {
-      const exact = mockApis[url];
+      const exact = apis[url];
       if (exact !== undefined) return { entry: exact, params: {} };
-      for (const key of Object.keys(mockApis)) {
+      for (const key of Object.keys(apis)) {
         if (!key.includes(":")) continue;
         const keyParts = key.split("/");
         const urlParts = url.split("/");
@@ -385,7 +388,7 @@ if (USE_MOCK) {
             break;
           }
         }
-        if (matched) return { entry: mockApis[key], params };
+        if (matched) return { entry: apis[key], params };
       }
       return { entry: undefined, params: {} };
     };
