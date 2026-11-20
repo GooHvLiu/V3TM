@@ -1,18 +1,15 @@
 <template>
-  <div
+  <button
+    type="button"
     class="captcha-image"
     :class="{ 'is-disabled': disabled }"
-    role="button"
-    tabindex="0"
+    :disabled="disabled"
     :aria-label="t('auth.forgot.captchaRefresh')"
     @click="handleRefresh"
-    @keydown.enter.prevent="handleRefresh"
-    @keydown.space.prevent="handleRefresh"
   >
-    <div v-if="isRawSvg" class="image raw" v-html="captcha?.img" />
-    <img v-else-if="captcha?.img" class="image" :src="captcha.img" alt="">
-    <span v-else class="placeholder">{{ t("auth.forgot.captchaLoadFail") }}</span>
-  </div>
+    <img v-if="imageSource" class="image" :src="imageSource" alt="">
+    <span v-else class="placeholder" aria-hidden="true">{{ t("auth.forgot.captchaLoadFail") }}</span>
+  </button>
 </template>
 
 <script setup lang="ts">
@@ -33,8 +30,13 @@ const emit = defineEmits<{ refresh: [] }>();
 
 const { t } = useI18n();
 
-// 后端可能回内联 svg 文本，也可能回 data:image 前缀，两种都要能显示
-const isRawSvg = computed(() => (props.captcha?.img ?? "").trimStart().startsWith("<svg"));
+// 后端可能回内联 svg 文本，也可能回 data:image 前缀，两种都收进 img
+// 内联 svg 转成 data URI 后，图里的字符不再进无障碍树，操作说明由外层 aria-label 承担
+const imageSource = computed<string>(() => {
+  const img = (props.captcha?.img ?? "").trim();
+  if (!img) return "";
+  return img.startsWith("<svg") ? `data:image/svg+xml;utf8,${encodeURIComponent(img)}` : img;
+});
 
 const handleRefresh = (): void => {
   if (props.disabled) return;
@@ -51,6 +53,9 @@ const handleRefresh = (): void => {
   min-width: 100px;
   height: 34px;
   padding: 0 @space-2;
+  appearance: none;
+  font: inherit;
+  color: inherit;
   /* 验证码固定浅底：图形不随主题反转，保证深色字符可读 */
   background: #fff;
   border: 1px solid @color-border;
