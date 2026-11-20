@@ -1,7 +1,7 @@
 {
   "name": "v3tm",
   "version": "0.1.0",
-  "description": "Vue 3 + TypeScript + Element Plus 的中后台前端模板，动态路由、RBAC、主题令牌与 Mock 开箱可用",
+  "description": "Vue 3 + Element Plus admin template with dynamic menus, RBAC, i18n and a VitePress docs site.",
   "keywords": [
     "vue3",
     "typescript",
