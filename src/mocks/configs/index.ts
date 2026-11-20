@@ -66,11 +66,11 @@ const configRegistry: SystemConfigItem[] = [
   createItem({
     id: 29,
     configKey: "appVersion",
-    configValue: "0.1",
+    configValue: "0.2",
     configScope: "super",
     configGroup: "site",
     valueType: "string",
-    defaultValue: "0.1",
+    defaultValue: "0.2",
     validation: { maxLength: 50 },
     source: "default",
     sort: 9
