@@ -26,6 +26,7 @@ export const userList: UserInfo[] = [
     realName: "Administrator",
     email: "admin@example.com",
     status: 1,
+    // 密码明文（仅 mock 备注，生产绝不落库）：admin123456@
     lastLoginAt: "2026-10-28T09:00:00.000Z",
     createdAt: "2026-01-05T08:00:00.000Z",
     roles: ["admin"]
@@ -123,7 +124,7 @@ export const userList: UserInfo[] = [
   {
     id: 11,
     username: "superAdmin",
-    realName: "admin",
+    realName: "superAdmin",
     email: "example@example.com",
     status: 1,
     // 密码明文（仅 mock 备注，生产绝不落库）：superAdmin123456@

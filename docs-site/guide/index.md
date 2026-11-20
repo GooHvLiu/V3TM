@@ -9,35 +9,36 @@ npm run dev
 
 开发服务起在 `http://localhost:5173`，登录用 mock 账号：
 
-| 账号         | 密码                |
-| ------------ | ------------------- |
-| `superAdmin` | `superAdmin123456@` |
+| 账号         | 密码                | 角色       |
+| ------------ | ------------------- | ---------- |
+| `superAdmin` | `superAdmin123456@` | 超级管理员 |
+| `admin`      | `admin123456@`      | 管理员     |
 
-这个账号带超级管理员权限，能看到系统设置与超级面板的全部入口。其他角色账号在 `src/mocks/users` 里，按角色给不同的权限码。
+`superAdmin` 带超级管理员权限，能看到系统设置与超级面板的全部入口；`admin` 少掉超管那两块，用来对照权限效果。其他角色账号在 `src/mocks/users` 里，按角色给不同的权限码。
 
 ## 常用脚本
 
-| 命令                       | 作用                                                                                  |
-| -------------------------- | ------------------------------------------------------------------------------------- |
-| `npm run dev`              | 开发服务                                                                              |
-| `npm run build`            | 类型检查 + 生产构建                                                                   |
-| `npm run preview`          | 预览构建产物                                                                          |
-| `npm run type-check`       | 只跑 vue-tsc                                                                          |
-| `npm run lint`             | ESLint                                                                                |
-| `npm run lint:fix`         | ESLint 自动修复                                                                       |
-| `npm run format`           | Prettier 写回                                                                         |
-| `npm run test`             | vitest 监听                                                                           |
-| `npm run test:run`         | vitest 单次                                                                           |
-| `npm run test:coverage`    | 覆盖率，门槛 36 / 35 / 34 / 37                                                        |
-| `npm run docs:dev`         | 文档站开发服务                                                                        |
-| `npm run docs:build`       | 文档站构建                                                                            |
-| `npm run docs:preview`     | 预览文档站                                                                            |
-| `npm run site:build`       | 文档站 + 演示站一起构建                                                               |
-| `npm run primitives:check` | 检查是否绕过了原语直接写 Element Plus                                                 |
-| `npm run spacing:check`    | 检查间距是否走令牌                                                                    |
-| `npm run contrast:check`   | 对比度                                                                                |
-| `npm run bundle:check`     | 首屏体积预算 920 kB                                                                   |
-| `npm run audit:prod`       | 生产依赖审计                                                                          |
+| 命令                       | 作用                                                                                                            |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `npm run dev`              | 开发服务                                                                                                        |
+| `npm run build`            | 类型检查 + 生产构建                                                                                             |
+| `npm run preview`          | 预览构建产物                                                                                                    |
+| `npm run type-check`       | 只跑 vue-tsc                                                                                                    |
+| `npm run lint`             | ESLint                                                                                                          |
+| `npm run lint:fix`         | ESLint 自动修复                                                                                                 |
+| `npm run format`           | Prettier 写回                                                                                                   |
+| `npm run test`             | vitest 监听                                                                                                     |
+| `npm run test:run`         | vitest 单次                                                                                                     |
+| `npm run test:coverage`    | 覆盖率，门槛 36 / 35 / 34 / 37                                                                                  |
+| `npm run docs:dev`         | 文档站开发服务                                                                                                  |
+| `npm run docs:build`       | 文档站构建                                                                                                      |
+| `npm run docs:preview`     | 预览文档站                                                                                                      |
+| `npm run site:build`       | 文档站 + 演示站一起构建                                                                                         |
+| `npm run primitives:check` | 检查是否绕过了原语直接写 Element Plus                                                                           |
+| `npm run spacing:check`    | 检查间距是否走令牌                                                                                              |
+| `npm run contrast:check`   | 对比度                                                                                                          |
+| `npm run bundle:check`     | 首屏体积预算 920 kB                                                                                             |
+| `npm run audit:prod`       | 生产依赖审计                                                                                                    |
 | `npm run verify`           | 十步全跑：lint → primitives → spacing → contrast → type-check → 文档站类型 → test → build → bundle → 文档站构建 |
 
 日常改完代码跑 `npm run verify`，提交前它会拦住绝大多数问题。

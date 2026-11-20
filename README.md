@@ -4,24 +4,34 @@
 
 Vue 3 + TypeScript + Vite 的中后台前端模板，内置动态路由、RBAC 权限、主题令牌、Mock 接口、通知/日志/知识库等业务页面，适合作为企业后台项目的起点。
 
-[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)[![ci](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml)[![docs](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml)[![Vue](https://img.shields.io/badge/Vue-3.5-42b883.svg)](https://vuejs.org)[![Vite](https://img.shields.io/badge/Vite-8-646cff.svg)](https://vite.dev)[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6.svg)](https://www.typescriptlang.org)[![Element Plus](https://img.shields.io/badge/Element%20Plus-2.14-409eff.svg)](https://element-plus.org)[![Node](https://img.shields.io/badge/node-%3E%3D22-339933.svg)](https://nodejs.org)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/GooHvLiu/V3TM/releases)[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)[![ci](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml)[![docs](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml)[![Vue](https://img.shields.io/badge/Vue-3.5-42b883.svg)](https://vuejs.org)[![Vite](https://img.shields.io/badge/Vite-8-646cff.svg)](https://vite.dev)[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6.svg)](https://www.typescriptlang.org)[![Element Plus](https://img.shields.io/badge/Element%20Plus-2.14-409eff.svg)](https://element-plus.org)[![Node](https://img.shields.io/badge/node-%3E%3D22-339933.svg)](https://nodejs.org)[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 在线文档：https://goohvliu.github.io/V3TM/ ｜ 在线演示：https://goohvliu.github.io/V3TM/demo-app/
 
+## 演示账号
+
+在线演示与本地 Mock 模式共用同一套预置账号，验证码是 4 位字母数字，按图中字符输入即可。
+
+| 账号         | 密码                | 角色       |
+| ------------ | ------------------- | ---------- |
+| `superAdmin` | `superAdmin123456@` | 超级管理员 |
+| `admin`      | `admin123456@`      | 管理员     |
+
+`admin` 是普通管理员视角，菜单与按钮权限比超管少一截，可用来对照 RBAC。Mock 层按用户名匹配账号并校验账号状态，不校验密码与验证码；接入真实后端后，认证交由后端处理。
+
 ## 界面预览
 
-浅色与深色两套主题共用同一套令牌，图表、卡片、表格随主题切换。
+浅色与深色两套主题共用同一套令牌，图表、卡片、表格随主题切换。截图按语言分目录存放，`docs/images/zh` 与 `docs/images/en` 各一套。
 
-| 看板 · 浅色                                                                     | 看板 · 深色                                                                    |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| <img src="docs/images/dashboard-light.png" alt="浅色主题看板" width="100%">     | <img src="docs/images/dashboard-dark.png" alt="深色主题看板" width="100%">     |
-| **列表页 · ProTable**                                                           | **表单弹窗 · ProForm**                                                         |
-| <img src="docs/images/table.png" alt="用户中心列表" width="100%">               | <img src="docs/images/form.png" alt="新增用户弹窗" width="100%">               |
-| **系统设置 · 参数分组**                                                         | **登录页**                                                                     |
-| <img src="docs/images/settings.png" alt="系统设置" width="100%">                | <img src="docs/images/login.png" alt="登录页" width="100%">                    |
-| **组件演示 · 浅色**                                                             | **组件演示 · 深色**                                                            |
-| <img src="docs/images/design-system-light.png" alt="组件演示浅色" width="100%"> | <img src="docs/images/design-system-dark.png" alt="组件演示深色" width="100%"> |
+| 看板 · 浅色                                                                        | 看板 · 深色                                                                       |
+| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| <img src="docs/images/zh/dashboard-light.png" alt="浅色主题看板" width="100%">     | <img src="docs/images/zh/dashboard-dark.png" alt="深色主题看板" width="100%">     |
+| **列表页 · ProTable**                                                              | **表单弹窗 · ProForm**                                                            |
+| <img src="docs/images/zh/table.png" alt="用户中心列表" width="100%">               | <img src="docs/images/zh/form.png" alt="新增用户弹窗" width="100%">               |
+| **系统设置 · 参数分组**                                                            | **登录页**                                                                        |
+| <img src="docs/images/zh/settings.png" alt="系统设置" width="100%">                | <img src="docs/images/zh/login.png" alt="登录页" width="100%">                    |
+| **组件演示 · 浅色**                                                                | **组件演示 · 深色**                                                               |
+| <img src="docs/images/zh/design-system-light.png" alt="组件演示浅色" width="100%"> | <img src="docs/images/zh/design-system-dark.png" alt="组件演示深色" width="100%"> |
 
 截图取自 Mock 模式，页面内数据均为示例。
 
@@ -70,7 +80,7 @@ npm run site:preview -- --port 4180
 | 权限   | 路由守卫 + `v-permission` 按钮级权限，权限码从 profile 下发                                                                                   |
 | 请求层 | Axios 封装、单飞续期、失败排队重放、统一错误码与 Mock 适配                                                                                    |
 | 状态   | Pinia 模块化 store，用户/菜单/主题/通知/配置按域拆分                                                                                          |
-| 国际化 | 中英双语言包完整；语言与主题偏好本地持久化                                                                                                    |
+| 国际化 | 中英双语言包完整，顶栏可切换；语言与主题偏好本地持久化                                                                                        |
 | 主题   | CSS 变量 + Less 令牌，亮色/暗色/主题色可切换                                                                                                  |
 | Mock   | 菜单、用户、角色、字典、通知、日志、帮助、指标等接口内置 Mock                                                                                 |
 | 业务页 | 用户中心、角色中心、菜单中心、权限中心、通知中心、日志中心、系统设置、帮助中心、知识库                                                        |
@@ -95,7 +105,7 @@ V3TM/
 │  ├─ stores/         Pinia 模块
 │  ├─ types/          手写 TypeScript 类型
 │  └─ utils/          请求、存储、权限、格式化等工具
-├─ docs/              设计约定与仓库内预览图
+├─ docs/              设计约定与中英两套预览图
 ├─ docs-site/         VitePress 文档站：指南、原子组件、业务组件、参考与演示
 ├─ e2e/               Playwright 端到端用例
 ├─ public/            静态资源
@@ -158,6 +168,8 @@ V3TM/
 | `VITE_DEMO_APP_URL`        | 文档站 Demo 内嵌地址       |
 | `VITE_APP_HELP_AI_TIMEOUT` | 帮助中心 AI 请求超时       |
 
+未填 `VITE_USE_MOCK` 时按运行模式判断：开发与 e2e 走 Mock，生产构建走真实接口。
+
 ## 文档
 
 - [在线组件文档](docs-site/index.md)：指南、14 个原子组件、4 个业务组件、间距令牌与断点，`npm run docs:dev` 本地打开
@@ -172,7 +184,7 @@ V3TM/
 
 - `.nvmrc` 与 CI 用同一档 Node 版本，`nvm use` 就能对齐
 - 编辑器按 `.editorconfig` 统一缩进与换行
-- 依赖更新由 dependabot 每周提一次，大版本不自动升，避免牵动 Element Plus 与 Vite
+- 依赖更新由 dependabot 定期提出：npm 依赖每周一次，GitHub Actions 每月一次；大版本不自动升，避免牵动 Element Plus 与 Vite
 
 ## 许可证
 

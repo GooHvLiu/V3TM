@@ -10,7 +10,7 @@
 | `VITE_STORAGE_TYPE`        | `local`                 | 存储驱动，`local` 或 `session`          |
 | `VITE_APP_BASE_API`        | `/api`                  | 请求基址                                |
 | `VITE_APP_TIME_OUT`        | `10000`                 | 请求超时（毫秒）                        |
-| `VITE_USE_MOCK`            | `true`                  | 是否走 mock 表，连后端时改 `false`       |
+| `VITE_USE_MOCK`            | `true`                  | 是否走 mock 表，连后端时改 `false`      |
 | `VITE_APP_PROXY_TARGET`    | `http://127.0.0.1:3000` | 开发代理目标                            |
 | `VITE_APP_PORT`            | `5173`                  | 开发端口                                |
 | `VITE_APP_HELP_AI_TIMEOUT` | `60000`                 | 帮助中心问答超时                        |
@@ -41,7 +41,7 @@ mock 只负责形状与分页语义，不模拟延迟与失败。要测加载态
 
 ## 演示账号
 
-`superAdmin / superAdmin123456@`。密码错误时后端返回 `USER_PASSWORD_ERROR`，前端按标识翻成「账号或密码错误」。
+`superAdmin / superAdmin123456@`，另有 `admin / admin123456@`（普通管理员）。mock 只按用户名匹配账号并校验状态，不拦密码；接上真后端后，密码错误由后端返回 `USER_PASSWORD_ERROR`，前端按标识翻成「账号或密码错误」。
 
 ## 本地连着真后端
 

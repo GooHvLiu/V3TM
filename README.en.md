@@ -4,33 +4,36 @@
 
 An admin front-end template built with Vue 3, TypeScript and Vite. It ships dynamic routing, RBAC, design tokens, a complete mock layer, and working pages for users, roles, menus, permissions, notifications, logs, settings and a knowledge base — a starting point for internal tools rather than a demo.
 
-[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
-[![ci](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml)
-[![docs](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml)
-[![Vue](https://img.shields.io/badge/Vue-3.5-42b883.svg)](https://vuejs.org)
-[![Vite](https://img.shields.io/badge/Vite-8-646cff.svg)](https://vite.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6.svg)](https://www.typescriptlang.org)
-[![Element Plus](https://img.shields.io/badge/Element%20Plus-2.14-409eff.svg)](https://element-plus.org)
-[![Node](https://img.shields.io/badge/node-%3E%3D22-339933.svg)](https://nodejs.org)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/GooHvLiu/V3TM/releases)[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)[![ci](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml)[![docs](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml)[![Vue](https://img.shields.io/badge/Vue-3.5-42b883.svg)](https://vuejs.org)[![Vite](https://img.shields.io/badge/Vite-8-646cff.svg)](https://vite.dev)[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6.svg)](https://www.typescriptlang.org)[![Element Plus](https://img.shields.io/badge/Element%20Plus-2.14-409eff.svg)](https://element-plus.org)[![Node](https://img.shields.io/badge/node-%3E%3D22-339933.svg)](https://nodejs.org)[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 Documentation: https://goohvliu.github.io/V3TM/ · Live demo: https://goohvliu.github.io/V3TM/demo-app/
 
+## Demo account
+
+The live demo and local mock mode share the same preset account. The captcha is four letters and digits; type what the image shows.
+
+| Account      | Password            | Role        |
+| ------------ | ------------------- | ----------- |
+| `superAdmin` | `superAdmin123456@` | Super admin |
+| `admin`      | `admin123456@`      | Admin       |
+
+`admin` signs in with the regular admin role, which carries fewer menus and permissions than the super admin — useful for comparing the two. The mock layer matches the account by username and checks its status only; the password and captcha are not verified. With a real backend, authentication is the backend's job.
+
 ## Preview
 
-Light and dark themes share one token set; charts, cards and tables follow the active theme.
+Light and dark themes share one token set; charts, cards and tables follow the active theme. Screenshots live per language: `docs/images/en` here, `docs/images/zh` for the Chinese README.
 
-| Dashboard · light                                                                                   | Dashboard · dark                                                                                  |
-| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| <img src="docs/images/dashboard-light.png" alt="Dashboard in light theme" width="100%">             | <img src="docs/images/dashboard-dark.png" alt="Dashboard in dark theme" width="100%">             |
-| **List page · ProTable**                                                                            | **Form dialog · ProForm**                                                                         |
-| <img src="docs/images/table.png" alt="User list" width="100%">                                      | <img src="docs/images/form.png" alt="Create user dialog" width="100%">                            |
-| **Settings · grouped parameters**                                                                   | **Sign in**                                                                                       |
-| <img src="docs/images/settings.png" alt="System settings" width="100%">                             | <img src="docs/images/login.png" alt="Sign in page" width="100%">                                 |
-| **Components · light**                                                                              | **Components · dark**                                                                             |
-| <img src="docs/images/design-system-light.png" alt="Component gallery in light theme" width="100%"> | <img src="docs/images/design-system-dark.png" alt="Component gallery in dark theme" width="100%"> |
+| Dashboard · light                                                                                      | Dashboard · dark                                                                                     |
+| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| <img src="docs/images/en/dashboard-light.png" alt="Dashboard in light theme" width="100%">             | <img src="docs/images/en/dashboard-dark.png" alt="Dashboard in dark theme" width="100%">             |
+| **List page · ProTable**                                                                               | **Form dialog · ProForm**                                                                            |
+| <img src="docs/images/en/table.png" alt="User list" width="100%">                                      | <img src="docs/images/en/form.png" alt="Create user dialog" width="100%">                            |
+| **Settings · grouped parameters**                                                                      | **Sign in**                                                                                          |
+| <img src="docs/images/en/settings.png" alt="System settings" width="100%">                             | <img src="docs/images/en/login.png" alt="Sign in page" width="100%">                                 |
+| **Components · light**                                                                                 | **Components · dark**                                                                                |
+| <img src="docs/images/en/design-system-light.png" alt="Component gallery in light theme" width="100%"> | <img src="docs/images/en/design-system-dark.png" alt="Component gallery in dark theme" width="100%"> |
 
-Screenshots are taken in mock mode; all data shown is sample data.
+Screenshots are taken with the English locale in mock mode. Sample records keep Chinese names, matching the data set the template ships with.
 
 ## Quick start
 
@@ -77,7 +80,7 @@ npm run site:preview -- --port 4180
 | Permissions | Route guards plus a `v-permission` directive for button-level checks; codes come from the profile payload                                                                                           |
 | Requests    | Axios wrapper with single-flight token refresh, queued replay, unified error codes, mock adapter                                                                                                    |
 | State       | Modular Pinia stores split by domain: user, menu, theme, notification, config                                                                                                                       |
-| i18n        | Complete Chinese and English packs; language and theme preferences persisted locally                                                                                                                |
+| i18n        | Complete Chinese and English packs, switchable from the header; preferences persisted locally                                                                                                       |
 | Theme       | CSS variables plus Less tokens; light, dark and brand colour are switchable at runtime                                                                                                              |
 | Mock        | Menus, users, roles, dictionaries, notifications, logs, help and metrics are all mocked                                                                                                             |
 | Pages       | User, role, menu, permission, notification, log and session centres; system settings; help centre; knowledge base                                                                                   |
@@ -165,6 +168,8 @@ Copy `.env.example` to a local env file and adjust as needed:
 | `VITE_DEMO_APP_URL`        | App URL embedded by the docs site            |
 | `VITE_APP_HELP_AI_TIMEOUT` | Help centre AI request timeout               |
 
+When `VITE_USE_MOCK` is unset, the mode follows the run target: development and e2e use the mock layer, a production build talks to the real API.
+
 ## Documentation
 
 - [Component docs](docs-site/index.md): guide, 14 common components, 4 business components, spacing tokens and breakpoints
@@ -179,7 +184,7 @@ Run `npm run verify` before opening a pull request; also run `npm run test:e2e` 
 
 - `.nvmrc` pins the same Node version CI uses; `nvm use` is enough
 - `.editorconfig` keeps indentation and line endings consistent across editors
-- Dependabot opens one grouped update per week and skips major bumps, so Element Plus and Vite are not dragged along
+- Dependabot opens updates on a schedule — npm dependencies weekly, GitHub Actions monthly — and skips major bumps, so Element Plus and Vite are not dragged along
 
 ## License
 
