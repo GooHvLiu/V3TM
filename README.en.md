@@ -4,7 +4,7 @@
 
 An admin front-end template built with Vue 3, TypeScript and Vite. It ships dynamic routing, RBAC, design tokens, a complete mock layer, and working pages for users, roles, menus, permissions, notifications, logs, settings and a knowledge base — a starting point for internal tools rather than a demo.
 
-[![version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/GooHvLiu/V3TM/releases)[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)[![ci](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml)[![docs](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml)[![Vue](https://img.shields.io/badge/Vue-3.5-42b883.svg)](https://vuejs.org)[![Vite](https://img.shields.io/badge/Vite-8-646cff.svg)](https://vite.dev)[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6.svg)](https://www.typescriptlang.org)[![Element Plus](https://img.shields.io/badge/Element%20Plus-2.14-409eff.svg)](https://element-plus.org)[![Node](https://img.shields.io/badge/node-%3E%3D22-339933.svg)](https://nodejs.org)[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![version](https://img.shields.io/badge/version-0.2.0-blue.svg)](https://github.com/GooHvLiu/V3TM/releases)[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)[![ci](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/ci.yml)[![docs](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml/badge.svg)](https://github.com/GooHvLiu/V3TM/actions/workflows/docs.yml)[![Vue](https://img.shields.io/badge/Vue-3.5-42b883.svg)](https://vuejs.org)[![Vite](https://img.shields.io/badge/Vite-8-646cff.svg)](https://vite.dev)[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6.svg)](https://www.typescriptlang.org)[![Element Plus](https://img.shields.io/badge/Element%20Plus-2.14-409eff.svg)](https://element-plus.org)[![Node](https://img.shields.io/badge/node-%3E%3D22-339933.svg)](https://nodejs.org)[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 Documentation: https://goohvliu.github.io/V3TM/ · Live demo: https://goohvliu.github.io/V3TM/demo-app/
 
@@ -169,6 +169,16 @@ Copy `.env.example` to a local env file and adjust as needed:
 | `VITE_APP_HELP_AI_TIMEOUT` | Help centre AI request timeout               |
 
 When `VITE_USE_MOCK` is unset, the mode follows the run target: development and e2e use the mock layer, a production build talks to the real API.
+
+## Deployment
+
+`deploy/` holds a multi-stage Dockerfile, an nginx config and a compose file: the build runs in a node image, the output is served by nginx, with deep-link fallback, long caching for hashed assets and a `/healthz` probe already wired up.
+
+```bash
+docker compose -f deploy/docker-compose.yml up -d --build
+```
+
+Then open `http://localhost:8080`. For a sub path, pass `--build-arg VITE_APP_BASE=/v3tm/` at build time. Without containers, copy `dist` to any static directory and include the same `nginx.conf`. Details in [deploy/README.md](deploy/README.md).
 
 ## Documentation
 
