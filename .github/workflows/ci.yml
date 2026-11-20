@@ -25,13 +25,13 @@ jobs:
 
     steps:
       - name: 检出仓库
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # 文档站的「最后更新」读提交时间，浅克隆取不到
           fetch-depth: 0
 
       - name: 准备 Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22.15.0
           cache: npm
@@ -54,7 +54,7 @@ jobs:
 
       - name: 留存构建产物
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist
@@ -68,10 +68,10 @@ jobs:
 
     steps:
       - name: 检出仓库
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 准备 Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22.15.0
           cache: npm
@@ -87,7 +87,7 @@ jobs:
 
       - name: 留存失败报告
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-report
           path: playwright-report
