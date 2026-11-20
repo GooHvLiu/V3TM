@@ -1,0 +1,10 @@
+# 默认由仓库所有者审阅；按目录细分时在下表补充
+* @GooHvLiu
+
+# 基座与设计系统改动影响面大，单独标注
+/src/assets/styles/          @GooHvLiu
+/src/router/                 @GooHvLiu
+/src/stores/                 @GooHvLiu
+/src/utils/request/          @GooHvLiu
+/scripts/                    @GooHvLiu
+/.github/                    @GooHvLiu

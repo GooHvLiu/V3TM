@@ -1,0 +1,90 @@
+/* ==========================================
+ * 亮色主题令牌 · :root（默认值层）
+ * ------------------------------------------
+ * 组件书写层 @color-*（variables.less 全局注入）全部指向这些 var()
+ * 新增/修改亮色值只改本文件
+ * ========================================== */
+:root {
+  /* ===== 主色 ===== */
+  --color-primary: #409eff;
+  /* 主品牌色 */
+  --color-primary-light: #79bbff;
+  /* 主色浅（hover） */
+  --color-primary-lighter: #a0cfff;
+  /* 主色更浅（active/选中背景） */
+  --color-primary-dark: #337ecc;
+  /* 主色深（按下） */
+  /* ===== 主题主打色 ===== */
+  --color-theme-primary: #52525c;
+  /* 主打主题颜色 */
+  /* ===== 语义状态色（与 Element Plus 对齐）===== */
+  --color-success: #67c23a;
+  /* 成功 */
+  --color-warning: #e6a23c;
+  /* 警告 */
+  --color-danger: #f56c6c;
+  /* 危险/错误 */
+  --color-info: #909399;
+  /* 中性提示 */
+  /* 语义色用于文字时压深，白底/浅色底对比度 ≥ 4.5:1 */
+  --color-primary-text: #1d4ed8;
+  --color-success-text: #2f7d1f;
+  --color-warning-text: #8a5a00;
+  --color-danger-text: #b34040;
+  --color-info-text: #5c6572;
+  /* ===== 文字色 ===== */
+  --color-text-primary: #09090b;
+  /* 主要文字（标题） */
+  --color-text-regular: #606266;
+  /* 常规文字（正文） */
+  --color-text-secondary: #5c6572;
+  /* 次要文字（辅助说明，白底对比度 ≥ 4.5:1） */
+  --color-text-placeholder: #6b7280;
+  /* 占位符（白底对比度 ≥ 4.5:1） */
+  --color-text-white: #ffffff;
+  /* 反白文字（深色背景上） */
+  --color-text-disabled: #c0c4cc;
+  /* 禁用文字 */
+  /* EP 组件文字同步，避免组件库默认灰落在 4.5:1 以下 */
+  --el-text-color-secondary: #5c6572;
+  --el-text-color-placeholder: #6b7280;
+  /* ===== 边框与分割线 ===== */
+  --color-border: #ebebeb;
+  /* 默认边框 如菜单线 */
+  --color-border-deep: #303133;
+  /* 深边框（定制颜色） */
+  --color-border-light: #e4e7ed;
+  /* 浅边框（卡片） */
+  --color-border-lighter: #ebeef5;
+  /* 更浅边框（分割线） */
+  /* ===== 背景色 ===== */
+  --color-bg-page: #ffffff;
+  /* 页面整体背景 */
+  --color-bg-container: #ffffff;
+  /* 内容容器背景 */
+  --color-bg-hover: #f4f4f5;
+  /* 悬停背景 */
+  --color-bg-menu: #fafafa;
+  /* 菜单背景色 */
+  --color-bg-disabled: #f5f7fa;
+  /* 禁用背景 */
+  --color-bg-mask: rgba(0, 0, 0, 0.05);
+  /* 遮罩层 */
+  /* ===== 滚动条 ===== */
+  /* 滚动条滑块：主色 25% + 透明 75%（跟随主题切换） */
+  --color-scrollbar: rgba(192, 196, 204, 0.25);
+  /* 滚动条滑块（半透明） */
+  /* ==========================================
+   * Element Plus 桥接：EP 组件跟随主题
+   * color-mix 自动衍生 hover/active/浅色阶
+   * 主题覆盖块只改 --color-primary，这里全自动
+   * 亮色浅阶向 #ffffff 混（浅底上 hover 显浅）
+   * ========================================== */
+  --el-color-primary: var(--color-primary);
+  --el-color-primary-light-3: color-mix(in srgb, var(--color-primary) 70%, #ffffff);
+  --el-color-primary-light-5: color-mix(in srgb, var(--color-primary) 50%, #ffffff);
+  --el-color-primary-light-7: color-mix(in srgb, var(--color-primary) 30%, #ffffff);
+  --el-color-primary-light-8: color-mix(in srgb, var(--color-primary) 20%, #ffffff);
+  --el-color-primary-light-9: color-mix(in srgb, var(--color-primary) 10%, #ffffff);
+  --el-color-primary-dark-2: color-mix(in srgb, var(--color-primary) 80%, #000000);
+}

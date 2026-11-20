@@ -1,0 +1,96 @@
+/* ==========================================
+ * 尺寸与排版令牌 · :root（默认值层）
+ * ------------------------------------------
+ * 只管与颜色无关的尺度：间距、字号、行高、字重、
+ * 圆角、阴影、动效、层级、控件高度与页面密度。
+ * 颜色仍由 theme-light / theme-color / theme-dark 维护。
+ * 组件写 @space-* / @font-size-* / @radius-* 等别名，
+ * 编译后统一落到这里的 CSS 变量。
+ * ========================================== */
+
+:root {
+  /* ===== 间距：2px 基准，覆盖现有 4/6/8/10/12 的细粒度 ===== */
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-1-5: 6px;
+  --space-2: 8px;
+  --space-2-5: 10px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ===== 字号 ===== */
+  --font-size-2xs: 11px;
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+
+  /* ===== 行高与字重 ===== */
+  --line-height-tight: 1.25;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.65;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* ===== 圆角：语义名，继续跟随面板定制档位 ===== */
+  --radius-inset: var(--radius-sm);
+  --radius-control: var(--radius-base);
+  --radius-card: var(--radius-lg);
+  --radius-panel: var(--radius-max);
+  --radius-pill: 999px;
+
+  /* ===== 阴影 ===== */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-popover: 0 6px 20px rgba(0, 0, 0, 0.1);
+  --shadow-modal: 0 16px 40px rgba(0, 0, 0, 0.16);
+  --shadow-focus: 0 0 0 2px color-mix(in srgb, var(--color-primary) 35%, transparent);
+
+  /* ===== 动效 ===== */
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 260ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1.2);
+
+  /* ===== 层级 ===== */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-modal: 2000;
+  --z-toast: 3000;
+
+  /* ===== 控件高度 ===== */
+  --control-height-sm: 28px;
+  --control-height-md: 32px;
+  --control-height-lg: 40px;
+
+  /* ===== 页面密度 ===== */
+  --page-gutter: 20px;
+  --section-gap: 16px;
+  --card-padding: 16px;
+
+  /* ===== 图标尺寸 ===== */
+  --icon-size-sm: 14px;
+  --icon-size-md: 18px;
+  --icon-size-lg: 24px;
+
+  /* ===== 焦点环 ===== */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--color-primary);
+}
+
+html.dark {
+  /* 深色背景上阴影需要更沉，否则层次会糊在一起 */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.28);
+  --shadow-popover: 0 8px 24px rgba(0, 0, 0, 0.36);
+  --shadow-modal: 0 16px 40px rgba(0, 0, 0, 0.48);
+}

@@ -1,0 +1,86 @@
+/* ==========================================
+ * 暗色主题令牌 · html.dark（覆盖层）
+ * ------------------------------------------
+ * shadcn class 策略：往 <html> 挂 dark 类 → 本块整体覆盖 :root
+ * 原则：只反转"无彩色"层（文字/边框/背景/滚动条）和 EP 浅阶混合底色；
+ *      彩色层（主色/状态色）由 theme-light + theme-color 继续负责，这里不改。
+ * 特异性：html.dark (0,1,1) > :root (0,1,0)，覆盖成立。
+ * ========================================== */
+html.dark {
+  /* ===== 文字色：深底 → 浅字 ===== */
+  /* ===== 文字色：深底 → 近纯白（shadcn 同款亮度） ===== */
+  --color-text-primary: #ffffff; /* 标题（纯白） */
+  --color-text-regular: #fafafa; /* 正文（近纯白） */
+  --color-text-secondary: #c9c9cf; /* 辅助说明（比原 #a3a6ad 亮一档） */
+  --color-text-placeholder: #9f9fa7; /* 占位符 */
+  /* --color-text-white: #ffffff —— 反白文字永远白，不覆盖 */
+  --color-text-disabled: #76767e; /* 禁用文字 */
+
+  /* EP 组件文字同步调白（覆盖 EP dark 官方 #e5eaf3 系，与自家令牌一致） */
+  --el-text-color-primary: #ffffff;
+  --el-text-color-regular: #fafafa;
+  --el-text-color-secondary: #c9c9cf;
+  --el-text-color-placeholder: #9f9fa7;
+  --el-text-color-disabled: #76767e;
+
+  /* 语义色文字在深底上提亮，保持 4.5:1 */
+  --color-primary-text: #79bbff;
+  --color-success-text: #95d475;
+  --color-warning-text: #eebe77;
+  --color-danger-text: #f89898;
+  --color-info-text: #c9c9cf;
+
+  /* ===== 边框：深底上比背景亮一档的灰 ===== */
+  --color-border: #3a3a3f; /* 默认边框（如菜单线） */
+  --color-border-deep: #4a4c52; /* 深边框（定制颜色，反转后仍可见） */
+  --color-border-light: #44454a; /* 浅边框（卡片） */
+  --color-border-lighter: #3a3b40; /* 更浅边框（分割线） */
+
+  /* ===== 背景色：浅底 → 深灰 ===== */
+  --color-bg-page: #09090b; /* 页面整体背景 */
+  --color-bg-container: #1e1e20; /* 内容容器背景 */
+  --color-bg-hover: #27272a; /* 悬停背景 */
+  --color-bg-menu: #18181b; /* 菜单背景色 */
+  --color-bg-disabled: #2a2a2e; /* 禁用背景 */
+  --color-bg-mask: rgba(0, 0, 0, 0.6); /* 遮罩层（暗色下略加重） */
+
+  /* ===== 滚动条 ===== */
+  --color-scrollbar: rgba(120, 122, 128, 0.35); /* 滚动条滑块（深色半透明） */
+
+  /* ===== EP 组件底色：浅色层里的白底统一换成容器灰 ===== */
+  --el-bg-color: var(--color-bg-container);
+  --el-bg-color-page: var(--color-bg-page);
+  --el-bg-color-overlay: #232326; /* 弹层比容器亮一档，浮起可见 */
+  --el-fill-color-blank: var(--color-bg-container);
+  --el-fill-color: #26262a;
+  --el-fill-color-light: #27272a;
+  --el-fill-color-lighter: #202023;
+  --el-fill-color-extra-light: #1c1c1f;
+  --el-fill-color-dark: #2e2e33;
+  --el-fill-color-darker: #323238;
+  --el-mask-color: rgba(0, 0, 0, 0.6);
+
+  /* ==========================================
+   * EP 桥接 · 暗色：浅阶混合底色 #ffffff → #000000
+   * 亮色浅阶=往白混（浅底 hover 显浅）；暗色必须往黑混，否则 hover/选中刺眼
+   * ========================================== */
+  --el-color-primary: var(--color-primary);
+  --el-color-primary-light-3: color-mix(in srgb, var(--color-primary) 70%, #000000);
+  --el-color-primary-light-5: color-mix(in srgb, var(--color-primary) 50%, #000000);
+  --el-color-primary-light-7: color-mix(in srgb, var(--color-primary) 30%, #000000);
+  --el-color-primary-light-8: color-mix(in srgb, var(--color-primary) 20%, #000000);
+  --el-color-primary-light-9: color-mix(in srgb, var(--color-primary) 10%, #000000);
+  --el-color-primary-dark-2: color-mix(in srgb, var(--color-primary) 80%, #ffffff);
+}
+
+/* ===== 卡片与浮层：浅色文件里定死的白底在暗色下一律兜底 ===== */
+/* 卡片与浮层：浅色文件里定死的白底在暗色下一律兜底
+ * 用 background 简写而非 background-color，避免被别处的简写规则回填白底 */
+html.dark .el-card,
+html.dark .el-dialog,
+html.dark .el-drawer,
+html.dark .el-message-box,
+html.dark .el-popover {
+  background: #1e1e20 !important;
+}
+

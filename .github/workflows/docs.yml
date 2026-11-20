@@ -1,0 +1,64 @@
+name: docs
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: 构建站点
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+        with:
+          # 「最后更新」读提交时间，浅克隆取不到
+          fetch-depth: 0
+
+      - name: 准备 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.15.0
+          cache: npm
+
+      - name: 安装依赖
+        run: npm ci --registry=https://registry.npmjs.org
+
+      # 构建文档站与 Mock 应用，产物合并到 dist-site：
+      # 应用落在 demo-app 子路径，演示页内嵌的就是它
+      - name: 构建
+        run: npm run site:build
+        env:
+          SITE_BASE: /${{ github.event.repository.name }}/
+
+      - name: 上传产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist-site
+
+  deploy:
+    name: 发布
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 部署到 Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

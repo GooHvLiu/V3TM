@@ -1,0 +1,75 @@
+/* ==========================================
+   对 Element Plus 相关的组件进行定制化改制
+   ------------------------------------------
+     改制对象        定制类名                 规格描述
+   ------------------------------------------
+      input    custom-big-radius-input    增加圆角及阴影           
+   ========================================== */
+
+/* 对 input 框的大圆角进行深度定制 */
+.custom-big-radius-input .el-input__wrapper {
+  border-radius: var(--radius-max) !important;
+}
+.custom-big-radius-input .el-input__wrapper.is-focus {
+  box-shadow: 0 0 8px 5px color-mix(in srgb, var(--color-primary), transparent 60%) !important;
+}
+
+/* Tag 文字在浅底上统一压深，满足 4.5:1；深色实心 Tag 维持白字 */
+.el-tag.el-tag--primary:not(.el-tag--dark) {
+  --el-tag-text-color: #1d4ed8;
+}
+.el-tag.el-tag--success:not(.el-tag--dark) {
+  --el-tag-text-color: #2f7d1f;
+}
+.el-tag.el-tag--warning:not(.el-tag--dark) {
+  --el-tag-text-color: #8a5a00;
+}
+.el-tag.el-tag--danger:not(.el-tag--dark) {
+  --el-tag-text-color: #b34040;
+}
+.el-tag.el-tag--info:not(.el-tag--dark) {
+  --el-tag-text-color: #5c6572;
+}
+
+/* 文字型危险按钮：浅底红字压深，避免 4.5:1 不达标 */
+.el-button.el-button--danger:is(.is-link, .is-text, .is-plain) {
+  --el-button-text-color: #b34040;
+  --el-button-hover-text-color: #b34040;
+  --el-button-active-text-color: #b34040;
+}
+
+/* 深色主题下底与字反转：上面压深的色在深底上不可读，改用同色向白提亮 */
+html.dark .el-tag.el-tag--primary:not(.el-tag--dark) {
+  --el-tag-text-color: color-mix(in srgb, var(--el-color-primary) 55%, #ffffff);
+}
+html.dark .el-tag.el-tag--success:not(.el-tag--dark) {
+  --el-tag-text-color: color-mix(in srgb, var(--el-color-success) 55%, #ffffff);
+}
+html.dark .el-tag.el-tag--warning:not(.el-tag--dark) {
+  --el-tag-text-color: color-mix(in srgb, var(--el-color-warning) 55%, #ffffff);
+}
+html.dark .el-tag.el-tag--danger:not(.el-tag--dark) {
+  --el-tag-text-color: color-mix(in srgb, var(--el-color-danger) 55%, #ffffff);
+}
+html.dark .el-tag.el-tag--info:not(.el-tag--dark) {
+  --el-tag-text-color: color-mix(in srgb, var(--el-color-info) 55%, #ffffff);
+}
+
+html.dark .el-button.el-button--danger:is(.is-link, .is-text, .is-plain) {
+  --el-button-text-color: color-mix(in srgb, var(--el-color-danger) 55%, #ffffff);
+  --el-button-hover-text-color: color-mix(in srgb, var(--el-color-danger) 45%, #ffffff);
+  --el-button-active-text-color: color-mix(in srgb, var(--el-color-danger) 45%, #ffffff);
+}
+
+/* 浏览器自动填充自带的浅蓝底改由主题底色接管，圆角跟随外层输入框 */
+.el-input input:-webkit-autofill,
+.el-input input:-webkit-autofill:hover,
+.el-input input:-webkit-autofill:focus,
+.el-input input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--el-text-color-regular);
+  caret-color: var(--el-text-color-regular);
+  -webkit-box-shadow: 0 0 0 1000px var(--el-fill-color-blank) inset;
+  box-shadow: 0 0 0 1000px var(--el-fill-color-blank) inset;
+  border-radius: inherit;
+  transition: background-color 9999s ease-in-out 0s;
+}

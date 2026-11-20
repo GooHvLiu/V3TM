@@ -1,0 +1,152 @@
+﻿/**
+ * ==========================================
+ * 认证模块（登录 / 注册）文案
+ * ==========================================
+ */
+
+export default {
+  title: "账号中心",
+  login: {
+    title: "用户登录",
+    subtitle: "请输入您的邮箱和密码登录。",
+    username: "用户昵称",
+    usernamePlaceholder: "输入您的用户昵称",
+    password: "用户密码",
+    passwordPlaceholder: "请输入密码",
+    captcha: "验证码",
+    submit: "登录",
+    forgotPassword: "忘记密码?",
+    noAccount: "没有账号？",
+    toRegister: "去注册",
+    terms: "登录即代表同意",
+    termsLink: "服务条款",
+    privacyLink: "隐私政策"
+  },
+  register: {
+    title: "用户注册",
+    subtitle: "正在创建您自己专属的账号。",
+    realName: "真实姓名",
+    realNamePlaceholder: "输入您的真实姓名",
+    username: "用户昵称",
+    usernamePlaceholder: "输入您的用户昵称，昵称唯一，不允许重复",
+    email: "用户邮箱",
+    emailPlaceholder: "example{'@'}example.com",
+    password: "用户密码",
+    passwordPlaceholder: "请输入密码",
+    confirmPassword: "确认密码",
+    confirmPlaceholder: "请输入密码",
+    submit: "注册",
+    hasAccount: "已有账号？",
+    toLogin: "去登录",
+    terms: "创建账号即代表同意",
+    termsLink: "服务条款",
+    privacyLink: "隐私政策",
+    disabled: "自助注册已关闭，请联系管理员开通账号"
+  },
+  forgot: {
+    title: "忘记密码",
+    subtitle: "通过邮箱验证码重置登录密码。",
+    backToLogin: "返回登录",
+    stepAccount: "验证账号",
+    stepReset: "重置密码",
+    username: "用户昵称",
+    usernamePlaceholder: "输入您的用户昵称",
+    email: "用户邮箱",
+    emailPlaceholder: "example{'@'}example.com",
+    captcha: "验证码",
+    captchaPlaceholder: "输入图中 4 位字符",
+    captchaRefresh: "点击刷新验证码",
+    captchaLoadFail: "验证码加载失败，点击重试",
+    sendCode: "发送验证码",
+    sentTo: "验证码已发送至 {email}",
+    validTip: "若账号与邮箱匹配，验证码 {time} 内有效；请同时检查垃圾邮件箱",
+    expiredTip: "验证码已失效，请重新获取",
+    resend: "重新发送",
+    resendCountdown: "{seconds} 秒后可重发",
+    modify: "重新填写",
+    codeLabel: "邮箱验证码",
+    codePlaceholder: "6 位数字",
+    newPassword: "新密码",
+    newPasswordPlaceholder: "8-32 位，大写字母、小写字母、数字、符号至少包含三类",
+    confirmPassword: "确认新密码",
+    confirmPlaceholder: "请再次输入新密码",
+    resetSubmit: "重置密码",
+    successTitle: "密码已重置",
+    successDesc: "请使用新密码重新登录，其他设备的登录状态已失效。",
+    blockedTitle: "尝试次数过多",
+    blockedDesc: "为保障账号安全，本次重置已锁定，请稍后重新获取验证码。",
+    blockedAction: "重新获取",
+    rules: {
+      length: "8-32 位",
+      complexity: "大写字母、小写字母、数字、符号至少包含三类"
+    },
+    errors: {
+      usernameEmpty: "请输入用户昵称",
+      usernameLength: "用户昵称长度为 3-50 个字符",
+      emailEmpty: "请输入邮箱地址",
+      emailLength: "邮箱地址不能超过 100 个字符",
+      emailInvalid: "请输入正确的邮箱地址",
+      captchaEmpty: "请输入图形验证码",
+      captchaLength: "图形验证码为 4 位",
+      codeFormat: "请输入 6 位数字验证码",
+      passwordWeak: "密码需为 8-32 位，且大写字母、小写字母、数字、符号至少包含三类",
+      confirmEmpty: "请再次输入新密码",
+      confirmMismatch: "两次输入的密码不一致",
+      captchaExpired: "图形验证码已过期，请重新输入",
+      captchaError: "图形验证码错误，请重新输入",
+      codeInvalid: "邮箱验证码错误或已过期",
+      accountMismatch: "用户名与邮箱不匹配，请检查后重试",
+      tooManyAttempts: "尝试次数过多，请重新获取验证码",
+      passwordWeakServer: "密码强度不足，请调整后重试",
+      rateLimited: "操作过于频繁，请稍后再试",
+      network: "网络异常，请稍后重试",
+      unknown: "操作失败，请稍后重试",
+      paramInvalid: "提交的信息格式有误，请检查后重试"
+    }
+  },
+  otherMethods: {
+    weChat: "微信"
+  },
+  force: {
+    title: "修改初始密码",
+    subtitle: "为保障账号安全，请先设置新密码后继续使用。",
+    oldPassword: "当前密码",
+    oldPasswordPlaceholder: "管理员提供的初始密码",
+    newPassword: "新密码",
+    newPasswordPlaceholder: "8-32 位，大写字母、小写字母、数字、符号至少包含三类",
+    confirmPassword: "确认新密码",
+    confirmPlaceholder: "请再次输入新密码",
+    submit: "保存并重新登录",
+    logout: "退出登录",
+    notice: "保存后当前登录状态立即失效，需要用新密码重新登录。",
+    rules: {
+      length: "8-32 位",
+      complexity: "大写字母、小写字母、数字、符号至少包含三类"
+    },
+    errors: {
+      oldEmpty: "请输入当前密码",
+      oldTooLong: "当前密码长度不能超过 64 位",
+      passwordWeak: "密码需为 8-32 位，且大写字母、小写字母、数字、符号至少包含三类",
+      confirmEmpty: "请再次输入新密码",
+      confirmMismatch: "两次输入的密码不一致",
+      oldWrong: "当前密码不正确",
+      sameAsOld: "新密码不能与当前密码相同",
+      unknown: "修改失败，请稍后重试"
+    }
+  },
+  message: {
+    nameEmpty: "请输入用户昵称",
+    emailEmpty: "邮箱内容不能为空",
+    pswEmpty: "密码不能为空",
+    captchaEmpty: "验证码不能为空",
+    confirmPsw: "两次输入的内容不一致",
+    incorrectEmail: "请输入正确的邮箱地址",
+    incorrectUsername: "只允许英文、下划线、数字，不能以数字开头，长度 3-20",
+    realNameEmpty: "真实姓名不能为空",
+    realNameTooLong: "真实姓名长度不能超过 50 个字符",
+    passwordWeak: "密码需为 8-32 位，且大写字母、小写字母、数字、符号至少包含三类",
+    passwordChanged: "密码已修改，请重新登录",
+    registerSuccess: "注册成功，请登录",
+    registerPending: "注册已提交，待管理员审核通过后即可登录"
+  }
+};

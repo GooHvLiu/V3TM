@@ -1,0 +1,144 @@
+/* ==========================================
+ * Less 别名层（组件书写层）- 全部指向 Token CSS 变量
+ * ------------------------------------------
+ * 组件里写 @color-xxx，编译后 = var(--color-xxx)
+ * 颜色值本身在 tokens.less 里定义
+ * ========================================== */
+
+// 引入与布局相关的 less
+@import "../layout/layout.less";
+
+/* ===== Logo 及 角色图标颜色 固定值 ===== */
+@color-logo-primary: var(--color-logo-primary);
+
+/* ===== 主色 ===== */
+@color-primary: var(--color-primary);
+@color-primary-light: var(--color-primary-light);
+@color-primary-lighter: var(--color-primary-lighter);
+@color-primary-dark: var(--color-primary-dark);
+
+/* ===== 语义状态色（与 Element Plus 对齐）===== */
+@color-success: var(--color-success);
+@color-warning: var(--color-warning);
+@color-danger: var(--color-danger);
+@color-info: var(--color-info);
+
+/* 语义色文字（浅底压深 / 深底提亮） */
+@color-primary-text: var(--color-primary-text);
+@color-success-text: var(--color-success-text);
+@color-warning-text: var(--color-warning-text);
+@color-danger-text: var(--color-danger-text);
+@color-info-text: var(--color-info-text);
+
+/* ===== 文字色 ===== */
+@color-text-primary: var(--color-text-primary);
+@color-text-regular: var(--color-text-regular);
+@color-text-secondary: var(--color-text-secondary);
+@color-text-placeholder: var(--color-text-placeholder);
+@color-text-white: var(--color-text-white);
+@color-text-disabled: var(--color-text-disabled);
+
+/* ===== 边框与分割线 ===== */
+@color-border: var(--color-border);
+@color-border-deep: var(--color-border-deep);
+@color-border-light: var(--color-border-light);
+@color-border-lighter: var(--color-border-lighter);
+
+/* ===== 背景色 ===== */
+@color-bg-page: var(--color-bg-page);
+@color-bg-container: var(--color-bg-container);
+@color-bg-hover: var(--color-bg-hover);
+@color-bg-menu: var(--color-bg-menu);
+@color-bg-disabled: var(--color-bg-disabled);
+@color-bg-mask: var(--color-bg-mask);
+
+/* ===== 滚动条 ===== */
+@color-scrollbar: var(--color-scrollbar); /* 实际滚动条只能使用 --color-scrollbar */
+
+/* ===== 圆角（运行时 CSS 变量，面板定制）===== */
+@radius-sm: 2px; /* 固定小圆角，不参与定制 */
+@radius-base: var(--radius-base);
+@radius-lg: var(--radius-lg);
+@radius-max: var(--radius-max);
+
+/* ===== 阴影 ===== */
+@shadow-offset-x: 0px; /* 水平偏移 */
+@shadow-offset-y: 2px; /* 垂直偏移 */
+@shadow-blur: 8px; /* 模糊半径 */
+@shadow-color: rgba(0, 0, 0, 0.08); /* 阴影颜色 */
+
+/* ===== 间距 ===== */
+@space-0-5: var(--space-0-5);
+@space-1: var(--space-1);
+@space-1-5: var(--space-1-5);
+@space-2: var(--space-2);
+@space-2-5: var(--space-2-5);
+@space-3: var(--space-3);
+@space-4: var(--space-4);
+@space-5: var(--space-5);
+@space-6: var(--space-6);
+@space-8: var(--space-8);
+@space-10: var(--space-10);
+@space-12: var(--space-12);
+
+/* ===== 字号 ===== */
+@font-size-2xs: var(--font-size-2xs);
+@font-size-xs: var(--font-size-xs);
+@font-size-sm: var(--font-size-sm);
+@font-size-base: var(--font-size-base);
+@font-size-lg: var(--font-size-lg);
+@font-size-xl: var(--font-size-xl);
+@font-size-2xl: var(--font-size-2xl);
+@font-size-3xl: var(--font-size-3xl);
+
+/* ===== 行高与字重 ===== */
+@line-height-tight: var(--line-height-tight);
+@line-height-base: var(--line-height-base);
+@line-height-relaxed: var(--line-height-relaxed);
+@font-weight-regular: var(--font-weight-regular);
+@font-weight-medium: var(--font-weight-medium);
+@font-weight-semibold: var(--font-weight-semibold);
+
+/* ===== 圆角语义 ===== */
+@radius-inset: var(--radius-inset);
+@radius-control: var(--radius-control);
+@radius-card: var(--radius-card);
+@radius-panel: var(--radius-panel);
+@radius-pill: var(--radius-pill);
+
+/* ===== 阴影语义 ===== */
+@shadow-card: var(--shadow-card);
+@shadow-popover: var(--shadow-popover);
+@shadow-modal: var(--shadow-modal);
+@shadow-focus: var(--shadow-focus);
+
+/* ===== 动效 ===== */
+@duration-fast: var(--duration-fast);
+@duration-base: var(--duration-base);
+@duration-slow: var(--duration-slow);
+@ease-standard: var(--ease-standard);
+@ease-emphasized: var(--ease-emphasized);
+
+/* ===== 层级 ===== */
+@z-dropdown: var(--z-dropdown);
+@z-sticky: var(--z-sticky);
+@z-modal: var(--z-modal);
+@z-toast: var(--z-toast);
+
+/* ===== 控件与页面密度 ===== */
+@control-height-sm: var(--control-height-sm);
+@control-height-md: var(--control-height-md);
+@control-height-lg: var(--control-height-lg);
+@page-gutter: var(--page-gutter);
+@section-gap: var(--section-gap);
+@card-padding: var(--card-padding);
+
+/* ===== 图标 ===== */
+@icon-size-sm: var(--icon-size-sm);
+@icon-size-md: var(--icon-size-md);
+@icon-size-lg: var(--icon-size-lg);
+
+/* ===== 焦点环 ===== */
+@focus-ring-width: var(--focus-ring-width);
+@focus-ring-offset: var(--focus-ring-offset);
+@focus-ring-color: var(--focus-ring-color);

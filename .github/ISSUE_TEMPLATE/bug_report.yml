@@ -1,0 +1,71 @@
+name: Bug report
+description: Report a reproducible defect in V3TM
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in the fields below so the issue can be reproduced.
+
+  - type: input
+    id: version
+    attributes:
+      label: V3TM version or commit
+      description: The release tag, or the first 7 characters of the commit you are running.
+      placeholder: v0.1.0 / 1a2b3c4
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Data source
+      options:
+        - Mock mode (VITE_USE_MOCK=true)
+        - Connected to a backend
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: OS, browser and version, Node.js version.
+      placeholder: Windows 11 / Chrome 141 / Node 22.15.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Sign in as superAdmin
+        2. Open Menu Center
+        3. Add a menu with an external path
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include console errors or a screenshot when possible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Related configuration, language, theme, or anything else worth knowing.
+    validations:
+      required: false

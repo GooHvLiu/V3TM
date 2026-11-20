@@ -1,0 +1,48 @@
+/* ==========================================
+ * 样式定制层 · 明暗无关（默认值层 :root）
+ * ------------------------------------------
+ * 放"不随明暗变化"的运行时定制变量与 EP 桥接：
+ *   圆角档位 / 内容宽度 / EP 圆角桥接 / 组件级圆角覆盖
+ * JS（use-system-theme）运行时 setProperty 到 <html> 内联，
+ * 内联优先级最高，自动覆盖这里的默认值 → 明暗共用同一套。
+ * ========================================== */
+
+:root {
+  /* ===== Logo 及 角色图标颜色 固定值 ===== */
+  --color-logo-primary: #409eff;
+
+  /* 侧边栏宽度（与明暗无关，放默认层） */
+  --sidebar-width: 200px; /* 侧边栏宽度（移动端也是） */
+  --sidebar-width-collapsed: 64px; /* 侧边栏折叠后的宽度 */
+
+  /* ===== 圆角（面板定制档位 0/4/8/12；sm 固定不参与）===== */
+  --radius-sm: 2px;
+  --radius-base: 8px;
+  --radius-lg: 12px;
+  --radius-max: 16px;
+
+  /* ===== 内容宽度（面板定制）===== */
+  --content-max-width: 100%;
+
+  /* ===== Element Plus 圆角桥接：EP 组件跟随定制 ===== */
+  --el-border-radius-base: var(--radius-base);
+  --el-border-radius-small: var(--radius-sm);
+  --el-border-radius-round: var(--radius-max);
+}
+
+/* ===== 组件级圆角覆盖：自带写死圆角变量的 EP 组件 ===== */
+.el-popover {
+  --el-popover-border-radius: var(--radius-base);
+}
+.el-card {
+  --el-card-border-radius: var(--radius-base);
+  /* 卡片只留一圈极浅描边，不用投影区分层次 */
+  --el-card-border-color: var(--el-border-color-lighter);
+}
+.el-tag {
+  --el-tag-border-radius: var(--radius-base);
+}
+.el-popper {
+  --el-popper-border-radius: var(--el-popover-border-radius, 4px); /* ← 引用 popover 变量 */
+  border-radius: var(--el-popper-border-radius);
+}

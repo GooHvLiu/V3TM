@@ -1,0 +1,60 @@
+/* ==========================================
+ * Layout / 布局尺寸、图标与断点（与色彩分离）
+ * 经 variables.less @import 全局注入
+ * ========================================== */
+
+/* ===== Loyout / 布局尺寸 ===== */
+@sidebar-width: var(--sidebar-width); /* 侧边栏宽度 */
+@sidebar-width-collapsed: var(--sidebar-width-collapsed); /* 侧边栏折叠后的宽度 */
+@header-height: 56px; /* 顶栏的高度 */
+@user-setting-height: 48px; /* 菜单栏底部用户登录信息和设置的高度 */
+
+/* ===== 响应式断点：六档（取各档上界，媒体查询用 max-width 累积） ===== */
+@screen-xs: 479px; /* 小屏手机 */
+@screen-sm: 639px; /* 大屏手机 */
+@screen-md: 767px; /* 横屏手机 / 竖持小平板 */
+@screen-lg: 1023px; /* 平板竖持 */
+@screen-xl: 1199px; /* 平板横持 / 小笔记本 */
+@screen-2xl: 1599px; /* 大屏桌面 */
+
+/* 三端语义：布局层与图标 mixin 只用这三个名字，取值全部来自上面六档 */
+@mobile-max: @screen-md;
+@tablet-max: @screen-xl;
+@desktop-min: (@screen-xl + 1px);
+
+/* 图标尺寸 */
+@desktop-icon: 18px;
+@tablet-icon: 21px;
+@mobile-icon: 30px;
+
+/* 菜单图标尺寸 */
+@menu-icon: 18px;
+
+/* ==========================================
+ * 响应式图标尺寸 mixin：桌面/平板/移动三端
+ * 需在组件的 scoped 样式块内调用（:deep 依赖 scoped 编译）
+ * ========================================== */
+.responsive-icon-size(@d: @desktop-icon; @t: @tablet-icon; @m: @mobile-icon) {
+  /* 桌面（默认） */
+  :deep(.el-icon),
+  :deep(.el-icon svg) {
+    width: @d;
+    height: @d;
+  }
+  /* 平板 768-1199 */
+  @media (min-width: (@screen-md + 1px)) and (max-width: @screen-xl) {
+    :deep(.el-icon),
+    :deep(.el-icon svg) {
+      width: @t;
+      height: @t;
+    }
+  }
+  /* 移动 ≤767 */
+  @media (max-width: @screen-md) {
+    :deep(.el-icon),
+    :deep(.el-icon svg) {
+      width: @m;
+      height: @m;
+    }
+  }
+}

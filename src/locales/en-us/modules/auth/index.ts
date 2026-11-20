@@ -1,0 +1,152 @@
+/**
+ * ==========================================
+ * Authentication (sign in / sign up) copy
+ * ==========================================
+ */
+
+export default {
+  title: "Account",
+  login: {
+    title: "Sign in",
+    subtitle: "Enter your email and password to continue.",
+    username: "Username",
+    usernamePlaceholder: "Your username",
+    password: "Password",
+    passwordPlaceholder: "Your password",
+    captcha: "Captcha",
+    submit: "Sign in",
+    forgotPassword: "Forgot password?",
+    noAccount: "No account yet?",
+    toRegister: "Sign up",
+    terms: "By signing in you agree to the",
+    termsLink: "terms of service",
+    privacyLink: "privacy policy"
+  },
+  register: {
+    title: "Sign up",
+    subtitle: "Create your own account.",
+    realName: "Full name",
+    realNamePlaceholder: "Your full name",
+    username: "Username",
+    usernamePlaceholder: "Pick a unique username",
+    email: "Email",
+    emailPlaceholder: "example{'@'}example.com",
+    password: "Password",
+    passwordPlaceholder: "Your password",
+    confirmPassword: "Confirm password",
+    confirmPlaceholder: "Repeat the password",
+    submit: "Create account",
+    hasAccount: "Already registered?",
+    toLogin: "Sign in",
+    terms: "By creating an account you agree to the",
+    termsLink: "terms of service",
+    privacyLink: "privacy policy",
+    disabled: "Self-service registration is closed. Ask an administrator for an account"
+  },
+  forgot: {
+    title: "Reset password",
+    subtitle: "Reset your password with an email code.",
+    backToLogin: "Back to sign in",
+    stepAccount: "Verify account",
+    stepReset: "New password",
+    username: "Username",
+    usernamePlaceholder: "Your username",
+    email: "Email",
+    emailPlaceholder: "example{'@'}example.com",
+    captcha: "Captcha",
+    captchaPlaceholder: "The 4 characters shown",
+    captchaRefresh: "Click to refresh",
+    captchaLoadFail: "Captcha failed to load, click to retry",
+    sendCode: "Send code",
+    sentTo: "Code sent to {email}",
+    validTip: "If the account and email match, the code is valid for {time}; check the spam folder as well",
+    expiredTip: "The code expired, request a new one",
+    resend: "Resend",
+    resendCountdown: "Resend in {seconds}s",
+    modify: "Edit details",
+    codeLabel: "Email code",
+    codePlaceholder: "6 digits",
+    newPassword: "New password",
+    newPasswordPlaceholder: "8-32 characters, at least three of upper case, lower case, digits and symbols",
+    confirmPassword: "Confirm new password",
+    confirmPlaceholder: "Repeat the new password",
+    resetSubmit: "Reset password",
+    successTitle: "Password reset",
+    successDesc: "Sign in with the new password. Other devices have been signed out.",
+    blockedTitle: "Too many attempts",
+    blockedDesc: "For account safety this reset is locked. Request a new code later.",
+    blockedAction: "Request new code",
+    rules: {
+      length: "8-32 characters",
+      complexity: "At least three of upper case, lower case, digits and symbols"
+    },
+    errors: {
+      usernameEmpty: "Enter your username",
+      usernameLength: "Username must be 3-50 characters",
+      emailEmpty: "Enter your email address",
+      emailLength: "Email is limited to 100 characters",
+      emailInvalid: "Enter a valid email address",
+      captchaEmpty: "Enter the captcha",
+      captchaLength: "The captcha has 4 characters",
+      codeFormat: "Enter the 6-digit code",
+      passwordWeak: "Password must be 8-32 characters with at least three of upper case, lower case, digits and symbols",
+      confirmEmpty: "Repeat the new password",
+      confirmMismatch: "The two passwords do not match",
+      captchaExpired: "Captcha expired, enter a new one",
+      captchaError: "Incorrect captcha, try again",
+      codeInvalid: "The email code is wrong or expired",
+      accountMismatch: "Username and email do not match",
+      tooManyAttempts: "Too many attempts, request a new code",
+      passwordWeakServer: "Password rejected as too weak, adjust it and retry",
+      rateLimited: "Too many requests, try again later",
+      network: "Network error, try again later",
+      unknown: "Something went wrong, try again later",
+      paramInvalid: "Submitted data is malformed, check it and retry"
+    }
+  },
+  otherMethods: {
+    weChat: "WeChat"
+  },
+  force: {
+    title: "Change the initial password",
+    subtitle: "Set a new password before using the account.",
+    oldPassword: "Current password",
+    oldPasswordPlaceholder: "The initial password from your administrator",
+    newPassword: "New password",
+    newPasswordPlaceholder: "8-32 characters, at least three of upper case, lower case, digits and symbols",
+    confirmPassword: "Confirm new password",
+    confirmPlaceholder: "Repeat the new password",
+    submit: "Save and sign in again",
+    logout: "Sign out",
+    notice: "Saving invalidates the current session; sign in again with the new password.",
+    rules: {
+      length: "8-32 characters",
+      complexity: "At least three of upper case, lower case, digits and symbols"
+    },
+    errors: {
+      oldEmpty: "Enter the current password",
+      oldTooLong: "Current password is limited to 64 characters",
+      passwordWeak: "Password must be 8-32 characters with at least three of upper case, lower case, digits and symbols",
+      confirmEmpty: "Repeat the new password",
+      confirmMismatch: "The two passwords do not match",
+      oldWrong: "Current password is incorrect",
+      sameAsOld: "New password must differ from the current one",
+      unknown: "Could not change the password, try again later"
+    }
+  },
+  message: {
+    nameEmpty: "Enter your username",
+    emailEmpty: "Email cannot be empty",
+    pswEmpty: "Password cannot be empty",
+    captchaEmpty: "Captcha cannot be empty",
+    confirmPsw: "The two entries do not match",
+    incorrectEmail: "Enter a valid email address",
+    incorrectUsername: "Letters, digits and underscores only, cannot start with a digit, 3-20 characters",
+    realNameEmpty: "Full name cannot be empty",
+    realNameTooLong: "Full name is limited to 50 characters",
+    passwordWeak: "Password must be 8-32 characters with at least three of upper case, lower case, digits and symbols",
+    passwordChanged: "Password changed, please sign in again",
+    registerSuccess: "Account created, please sign in",
+    registerPending: "Registration submitted, you can sign in once an administrator approves it"
+  }
+};

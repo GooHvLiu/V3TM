@@ -1,0 +1,25 @@
+/* ==========================================
+ * 主题色覆盖块 · 横跨明暗（只改 --color-primary）
+ * ------------------------------------------
+ * 新增主题：这里加一块 + constants/themes 加一行
+ * Sapphire 不需要覆盖块 —— 它是 :root 默认值。
+ * html.theme- 后面接的内容需与 constants/themes/index.ts 定义一致
+ * ========================================== */
+html.theme-Slate {
+  --color-primary: #52525c;
+}
+html.theme-Sapphire {
+  --color-primary: #409eff;
+}
+html.theme-Emerald {
+  --color-primary: #67c23a;
+}
+html.theme-Amber {
+  --color-primary: #e6a23c;
+}
+html.theme-Ruby {
+  --color-primary: #f56c6c;
+}
+html.theme-Amethyst {
+  --color-primary: #8e44ad;
+}

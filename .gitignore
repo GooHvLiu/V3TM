@@ -1,0 +1,66 @@
+# 依赖
+node_modules
+.npm
+*.tgz
+
+# 构建产物
+dist
+dist-ssr
+dist-site
+docs-site/.vitepress/dist
+docs-site/.vitepress/cache
+.vite
+.vitest
+
+# 构建时自动生成，每次重写
+components.d.ts
+docs-site/components.d.ts
+*.tsbuildinfo
+
+# 运行时资源：npm i 后由 predev / prebuild 从 node_modules/vditor 重建
+public/vditor/
+
+# 测试与覆盖率
+coverage
+playwright-report/
+test-results/
+blob-report/
+*.junit.xml
+
+# 日志
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 环境变量：样例留在仓库里，本地实际配置不入库
+.env
+.env.development
+.env.production
+.env.*.local
+.env.e2e.local
+!.env.example
+
+# 编辑器与系统文件
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+.DS_Store
+Thumbs.db
+desktop.ini
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Git hooks 安装产物
+.husky/_
+
+# 其它本地缓存
+*.local
+.eslintcache

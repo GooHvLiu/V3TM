@@ -1,0 +1,16 @@
+/* ==========================================
+ * CSS 变量令牌层 · 入口（运行时换肤的唯一数据源）
+ * ------------------------------------------
+ * 颜色值按"亮色/暗色/主题色"拆三文件，这里只负责按序引入：
+ *   1. theme-light.less  :root 亮色语义变量（默认值）
+ *   2. theme-color.less  html.theme-* 6 主题色块（只改 --color-primary，横跨明暗）
+ *   3. theme-dark.less   html.dark 暗色覆盖（与亮色一一对应）
+ * 本文件只在 main.ts 引入一次。
+ * 布局 less 变量（@sidebar-width/@mobile-max 等）由 vite.config
+ * additionalData 全局注入 variables.less（其内含 layout.less），无需在此重复引入。
+ * ========================================== */
+@import "./theme-light/theme-light.less";
+@import "./theme-color/theme-color.less";
+@import "./theme-dark/theme-dark.less";
+@import "./custom-style/custom-style.less";
+@import "./scale/scale.less";

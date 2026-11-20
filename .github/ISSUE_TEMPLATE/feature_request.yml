@@ -1,0 +1,56 @@
+name: Feature request
+description: Suggest an improvement or a new capability
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the problem first, then the solution you have in mind. Concrete scenarios help more than abstract ideas.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve
+      description: The situation you are in and what blocks you today.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: API shape, page behavior, or component design if you already have one.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Existing workarounds, other templates, or approaches you rejected.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Area
+      options:
+        - Base layer (router, request, stores)
+        - Design system and tokens
+        - Common components
+        - Business components (ProTable / ProForm / ProSearch / BaseChart)
+        - Pages
+        - Documentation
+        - Tooling and CI
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Willing to contribute
+      options:
+        - label: I can open a pull request for this
+        - label: I can help with testing or review

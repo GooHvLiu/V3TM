@@ -1,0 +1,66 @@
+/**
+ * 字典管理 页面文案
+ */
+export default {
+  // 字典类型页
+  typeTitle: "字典类型",
+  typeDescription: "管理字典类型，支持新增、编辑与删除，删除将级联清理其下字典项",
+  typeCode: "编码",
+  typeName: "名称",
+  remark: "备注",
+  status: "状态",
+  dataCount: "数量",
+  createdAt: "创建时间",
+  updatedAt: "更新时间",
+  createType: "新增类型",
+  dataTitle: "字典数据",
+  dataDescription: "管理当前字典类型的字典项，支持新增、编辑与删除",
+  label: "标签",
+  value: "键值",
+  sort: "排序",
+  createData: "新增字典项",
+  confirmDeleteData: "确定删除该字典项？",
+  confirmDeleteDataTitle: "删除字典项",
+  emptyType: "请先选择字典类型后再管理字典项",
+  edit: "编辑",
+  delete: "删除",
+  items: "数据",
+  statusEnabled: "启用",
+  statusDisabled: "停用",
+  confirmDeleteType: "确定删除该字典类型？其下所有字典项将一并删除",
+  confirmDeleteTypeTitle: "删除字典类型",
+  action: "操作",
+  typeCodePlaceholder: "类型编码/名称，如log_level",
+  labelPlaceholder: "标签/键值",
+  // dialog 与消息
+  dialog: {
+    typeCode: "类型编码",
+    typeName: "类型名称",
+    remark: "备注",
+    status: "状态",
+    label: "标签",
+    value: "键值",
+    sort: "排序",
+    createDataTitle: "新增字典项",
+    editDataTitle: "编辑字典项",
+    createTypeTitle: "新增字典类型",
+    editTypeTitle: "编辑字典类型",
+    statusEnabled: "启用",
+    statusDisabled: "停用",
+    message: {
+      typeCodeRequired: "请输入类型编码",
+      typeCodeFormat: "类型编码只能包含字母、数字、下划线",
+      typeNameMin: "类型名称至少 2 个字符",
+      remarkMax: "备注最多 200 个字符",
+      createTypeSuccess: "新增成功",
+      editTypeSuccess: "更新成功",
+      deleteTypeSuccess: "删除成功",
+      labelRequired: "请输入标签",
+      valueRequired: "请输入键值",
+      sortRequired: "请输入排序号",
+      createDataSuccess: "新增成功",
+      editDataSuccess: "更新成功",
+      deleteDataSuccess: "删除成功"
+    }
+  }
+};

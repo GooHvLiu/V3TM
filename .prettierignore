@@ -1,0 +1,11 @@
+dist/
+node_modules/
+public/
+src/
+docs/archive/
+package-lock.json
+components.d.ts
+docs-site/components.d.ts
+docs-site/.vitepress/cache/
+docs-site/.vitepress/dist/
+LICENSE

@@ -1,0 +1,66 @@
+/**
+ * Dictionary management copy
+ */
+export default {
+  // Dictionary type page
+  typeTitle: "Dictionary types",
+  typeDescription: "Manage dictionary types. Deleting a type also removes its entries",
+  typeCode: "Code",
+  typeName: "Name",
+  remark: "Note",
+  status: "Status",
+  dataCount: "Entries",
+  createdAt: "Created",
+  updatedAt: "Updated",
+  createType: "New type",
+  dataTitle: "Dictionary data",
+  dataDescription: "Manage entries for the selected dictionary type",
+  label: "Label",
+  value: "Value",
+  sort: "Order",
+  createData: "New entry",
+  confirmDeleteData: "Delete this entry?",
+  confirmDeleteDataTitle: "Delete entry",
+  emptyType: "Select a dictionary type before managing entries",
+  edit: "Edit",
+  delete: "Delete",
+  items: "Entries",
+  statusEnabled: "Active",
+  statusDisabled: "Disabled",
+  confirmDeleteType: "Delete this dictionary type? All of its entries are removed as well",
+  confirmDeleteTypeTitle: "Delete dictionary type",
+  action: "Actions",
+  typeCodePlaceholder: "Type code or name, e.g. log_level",
+  labelPlaceholder: "Label or value",
+  // Dialog and messages
+  dialog: {
+    typeCode: "Type code",
+    typeName: "Type name",
+    remark: "Note",
+    status: "Status",
+    label: "Label",
+    value: "Value",
+    sort: "Order",
+    createDataTitle: "New entry",
+    editDataTitle: "Edit entry",
+    createTypeTitle: "New dictionary type",
+    editTypeTitle: "Edit dictionary type",
+    statusEnabled: "Active",
+    statusDisabled: "Disabled",
+    message: {
+      typeCodeRequired: "Enter a type code",
+      typeCodeFormat: "Type code may contain letters, digits and underscores only",
+      typeNameMin: "Type name needs at least 2 characters",
+      remarkMax: "Note is limited to 200 characters",
+      createTypeSuccess: "Type created",
+      editTypeSuccess: "Type updated",
+      deleteTypeSuccess: "Type deleted",
+      labelRequired: "Enter a label",
+      valueRequired: "Enter a value",
+      sortRequired: "Enter an order number",
+      createDataSuccess: "Entry created",
+      editDataSuccess: "Entry updated",
+      deleteDataSuccess: "Entry deleted"
+    }
+  }
+};

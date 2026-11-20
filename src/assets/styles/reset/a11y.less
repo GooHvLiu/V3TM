@@ -1,0 +1,28 @@
+/* ==========================================
+ * 键盘可访问性基线
+ * ------------------------------------------
+ * 仅键盘导航（:focus-visible）显示焦点环，鼠标点击不出现；
+ * 统一使用主色令牌，暗色/主题色切换时自动跟随。
+ * ========================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+   outline-offset: 2px !important;
+}
+
+/* 仅供读屏定位的页面标题，不占视觉版面 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
